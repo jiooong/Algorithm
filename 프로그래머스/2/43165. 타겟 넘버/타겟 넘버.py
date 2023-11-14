@@ -1,13 +1,12 @@
 def solution(numbers, target):
-    answer = 0
-    leaves = [0]
-    for num in numbers:
-        tmp = []
-        for parent in leaves:
-            tmp.append(parent + num)
-            tmp.append(parent - num)
-        leaves = tmp
-    for leaf in leaves:
-        if leaf == target:
-            answer += 1
-    return answer
+    def dfs(i, sums):
+        if i == len(numbers):
+            if sums == target:
+                return 1
+            else:
+                return 0
+        else:
+            return dfs(i+1, sums + numbers[i]) + dfs(i+1, sums - numbers[i])            
+                    
+    return dfs(0,0)
+
