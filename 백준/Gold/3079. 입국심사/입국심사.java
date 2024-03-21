@@ -36,7 +36,7 @@ public class Main {
             if(num<M){
                 min = middle + 1;
             }else{
-                answer = Math.min(answer, middle);
+                answer = middle;
                 max = middle - 1;
             }
         }
